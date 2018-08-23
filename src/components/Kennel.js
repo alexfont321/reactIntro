@@ -31,10 +31,20 @@ class Kennel extends Component {
         {id: 3, name: "Pangea"}
     ]
 
+    ownersFromAPI = [
+        { id: 1, name: "Ryan Tanay" },
+        { id: 2, name: "Emma Beaton" },
+        { id: 3, name: "Dani Adkins" },
+        { id: 4, name: "Adam Oswalt" },
+        { id: 5, name: "Fletcher Bangs" },
+        { id: 6, name: "Angela Lee" }
+    ]
+
     state = {
         employees: this.employeesFromAPI,
         locations: this.locationsFromAPI,
-        animals: this.animalsFromAPI
+        animals: this.animalsFromAPI,
+        owners: this.ownersFromAPI
     }
 
 
@@ -43,7 +53,7 @@ class Kennel extends Component {
             <article className="kennel">
                 <LocationList locations={this.state.locations} />   
                 <EmployeeList employees={this.state.employees} />
-                <AnimalList animals={this.state.animals} />
+                <AnimalList animals={this.state.animals} owners={this.state.owners}/>
             </article>
         )
     }
