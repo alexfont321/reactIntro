@@ -3,16 +3,19 @@ import React, { Component } from 'react'
 class LocationList extends Component {
     render() {
         return (
-            <div>
-                <h4>Nashville North Location</h4>
-                <h5>500 Puppy Way</h5>
-                <h4>Nashville South Location</h4>
-                <h5>300 Doggies Avenue</h5>
-
+            <div className="locations">
+                {
+                    this.props.locations.map(location => 
+                        <div key={location.id}>
+                            <h3>{location.name}</h3>
+                            <p>{location.address}</p>
+                        </div>
+                    )}
+                
             </div>
 
 
-        );
+        )
 
     }
 
