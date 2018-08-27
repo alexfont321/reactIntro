@@ -11,6 +11,13 @@ export default Object.create(null, {
             return fetch(`${remoteURL}/animals`).then(e => e.json())
         }
     },
+    deleteAnimal: {
+        value: id => {
+            return fetch(`${remoteURL}/animals/${id}`, {
+                method: "DELETE"
+            }).then(r => r.json())
+        }
+    },
     getAllEmployees: {
         value: () => {
             return fetch(`${remoteURL}/employees`).then(r => r.json())

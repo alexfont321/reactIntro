@@ -4,7 +4,7 @@ import AnimalList from './animals/AnimalList'
 import LocationList from './locationList/LocationList'
 import EmployeeList from './employee/EmployeeList'
 import OwnersList from "./owners/OwnersList"
-import AnimalManager from "../modules/AnimalManager"
+import DbCalls from "../modules/DbCalls"
 
 import "./ApplicationViews.css"
 
@@ -25,24 +25,24 @@ class ApplicationViews extends Component {
         // const newState = {}
         
         
-        AnimalManager.getAllAnimals().then(allAnimals => {
+        DbCalls.getAllAnimals().then(allAnimals => {
             this.setState({
                 animals: allAnimals
             })
         })
-        .then(() => AnimalManager.getAllEmployees()
+        .then(() => DbCalls.getAllEmployees()
             .then(allEmployees => {
                 this.setState({
                     employees: allEmployees
                 })
             }))
-        .then(() => AnimalManager.getAllLocations()
+        .then(() => DbCalls.getAllLocations()
             .then(allLocations => {
                 this.setState({
                     locations: allLocations
                 })
             }))
-        .then(() => AnimalManager.getAllOwners()
+        .then(() => DbCalls.getAllOwners()
             .then(allOwners => {
                 this.setState({
                     owners: allOwners
@@ -64,10 +64,7 @@ class ApplicationViews extends Component {
     }
 
     deleteAnimal = id => {
-        return fetch(`http://localhost:5002/animals/${id}`, {
-            method: "DELETE"
-        })
-        .then(e => e.json())
+        DbCalls.deleteAnimal(id)
         .then(() => fetch(`http://localhost:5002/animals`))
         .then(e => e.json())
         .then(animals => this.setState({
