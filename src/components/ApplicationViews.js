@@ -50,6 +50,29 @@ class ApplicationViews extends Component {
         }))
     }
 
+    deleteOwner = id => {
+        return fetch(`http://localhost:5002/owners/${id}`, {
+            method: "DELETE"
+        })
+        .then(e => e.json())
+        .then(() => fetch(`http://localhost:5002/owners`))
+        .then(e => e.json())
+        .then(owners => this.setState({
+            owners: owners
+        }))
+    }
+    deleteEmployee = id => {
+        return fetch(`http://localhost:5002/employees/${id}`, {
+            method: "DELETE"
+        })
+        .then(e => e.json())
+        .then(() => fetch(`http://localhost:5002/employees`))
+        .then(e => e.json())
+        .then(employees => this.setState({
+            employees: employees
+        }))
+    }
+
     render() {
         return (
             <React.Fragment>
@@ -59,13 +82,14 @@ class ApplicationViews extends Component {
                 }} />
                 <Route exact path="/animals" render={(props) => {
                     return <AnimalList animals={this.state.animals} deleteAnimal={this.deleteAnimal} 
-                    owners={this.state.owners}/>
+                    // owners={this.state.owners}
+                    />
                 }} />
                 <Route exact path="/employees" render={(props) => {
-                    return <EmployeeList employees={this.state.employees} />
+                    return <EmployeeList employees={this.state.employees} deleteEmployee={this.deleteEmployee} />
                 }} />
                 <Route exact path="/owners" render={(props) => {
-                    return <OwnersList owners={this.state.owners} />
+                    return <OwnersList owners={this.state.owners} deleteOwner={this.deleteOwner}/>
                 }} />
                 </div>
             </React.Fragment>

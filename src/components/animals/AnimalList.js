@@ -13,10 +13,10 @@ class AnimalList extends Component {
                         return <div key={animal.id} className="card">
                                     <div className="card-body">
                                         <div className="card-title">
-                                        <img src={dog} className="icon--dog" />
+                                        <img src={dog} className="icon--dog" alt={animal.name} />
 
                                         <h3>{animal.name}</h3>
-                                        <p>{this.props.owners[`${animal.id - 1}`].name}</p>
+                                        {/* <p>{this.props.owners[`${animal.id - 1}`].name}</p> */}
                                         <button href="#"
                                             onClick={() => this.props.deleteAnimal(animal.id)}
                                             className="card-link">Delete</button>
