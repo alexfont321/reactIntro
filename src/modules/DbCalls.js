@@ -29,6 +29,17 @@ export default Object.create(null, {
             }).then(r => r.json())
         }
     },
+    editAnimal: {
+        value: (id, newAnimal) => {
+            return fetch(`${remoteURL}/animals/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newAnimal)
+            }).then(r => r.json())
+        }
+    },
     getAllEmployees: {
         value: () => {
             return fetch(`${remoteURL}/employees`).then(r => r.json())

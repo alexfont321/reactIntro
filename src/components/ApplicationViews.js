@@ -9,6 +9,7 @@ import AnimalDetail from './animals/AnimalDetail'
 import EmployeeDetail from "./employee/EmployeeDetail"
 import AnimalForm from "./animals/AnimalForm"
 import EmployeeForm from "./employee/EmployeeForm"
+import AnimalEditForm from "./animals/AnimalEditForm"
 
 
 import "./ApplicationViews.css"
@@ -112,6 +113,12 @@ class ApplicationViews extends Component {
         employees: employees
     }))
 
+    editAnimal = (id, newAnimal) => DbCalls.editAnimal(id, newAnimal)
+    .then(() => DbCalls.getAllAnimals())
+    .then(animals => this.setState({
+        animals: animals
+    }))
+
     render() {
         return (
             <React.Fragment>
@@ -131,6 +138,11 @@ class ApplicationViews extends Component {
                         return <AnimalForm {...props}
                             addAnimal={this.addAnimal}
                             employees={this.state.employees} />
+                    }} />
+                    <Route path="/animals/edit/:animalId(\d+)" render={props => {
+                        return <AnimalEditForm {...props} employees={this.state.employees} animals={this.state.animals}
+                                                editAnimal={this.editAnimal}
+                        />
                     }} />
                     <Route exact path="/employees" render={(props) => {
                         return <EmployeeList {...props} employees={this.state.employees} deleteEmployee={this.deleteEmployee} />

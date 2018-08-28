@@ -7,6 +7,14 @@
     {
       "name": "fffffff",
       "id": 5
+    },
+    {
+      "name": "Ricky Buttface",
+      "id": 6
+    },
+    {
+      "name": "Table Legs",
+      "id": 7
     }
   ],
   "locations": [
@@ -29,10 +37,16 @@
       "id": 5
     },
     {
-      "name": "sup",
-      "breed": "due",
-      "employeeId": 5,
+      "name": "new dog",
+      "breed": "dog",
+      "employeeId": 6,
       "id": 7
+    },
+    {
+      "name": "Little ",
+      "breed": "Akita",
+      "employeeId": 6,
+      "id": 8
     }
   ],
   "owners": [
