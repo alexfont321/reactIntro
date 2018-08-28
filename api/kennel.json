@@ -21,18 +21,7 @@
       "address": "10101 Binary Court"
     }
   ],
-  "animals": [
-    {
-      "id": 1,
-      "name": "Doodles",
-      "breed": "Akita"
-    },
-    {
-      "id": 6,
-      "name": "Checkers",
-      "breed": "Shepard"
-    }
-  ],
+  "animals": [],
   "owners": [
     {
       "id": 1,

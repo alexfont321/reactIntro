@@ -11,6 +11,17 @@ export default Object.create(null, {
             return fetch(`${remoteURL}/animals`).then(e => e.json())
         }
     },
+    postAnimal: {
+        value: newAnimal => {
+            return fetch(`${remoteURL}/animals`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newAnimal)
+            }).then(e => e.json())
+        }
+    },
     deleteAnimal: {
         value: id => {
             return fetch(`${remoteURL}/animals/${id}`, {

@@ -8,6 +8,17 @@ import { Link } from "react-router-dom"
 class AnimalList extends Component {
     render() {
         return (
+
+            <React.Fragment>
+                <div className="animalButton">
+                    <button type="button"
+                            className="btn btn-success"
+                            onClick={() => {
+                                this.props.history.push("/animals/new")}
+                            }>
+                        Admit Animal
+                    </button>
+                </div>
             <div className="animals">
                 {
                     this.props.animals.map(animal => {
@@ -21,7 +32,7 @@ class AnimalList extends Component {
                                         <Link className="nav-link" to={`/animals/${animal.id}`}>Details</Link>
 
                                         <button href="#"
-                                            onClick={() => this.props.deleteAnimal(animal.id)}
+                                            onClick={() => {this.props.deleteAnimal(animal.id)}}
                                             className="card-link">Delete</button>
                                         </div>
                                     </div>
@@ -32,6 +43,7 @@ class AnimalList extends Component {
                 }
 
             </div>
+            </React.Fragment>
         )
     }
 
