@@ -8,6 +8,7 @@ import DbCalls from "../modules/DbCalls"
 import AnimalDetail from './animals/AnimalDetail'
 import EmployeeDetail from "./employee/EmployeeDetail"
 import AnimalForm from "./animals/AnimalForm"
+import EmployeeForm from "./employee/EmployeeForm"
 
 
 import "./ApplicationViews.css"
@@ -68,7 +69,7 @@ class ApplicationViews extends Component {
     }
 
     deleteAnimal = id => {
-        DbCalls.deleteAnimal(id)
+        return DbCalls.deleteAnimal(id)
             .then(() => fetch(`http://localhost:5002/animals`))
             .then(e => e.json())
             .then(animals => this.setState({
@@ -105,6 +106,12 @@ class ApplicationViews extends Component {
             }))
     }
 
+    addEmployee = employee => DbCalls.addEmployee(employee)
+    .then(() => DbCalls.getAllEmployees())
+    .then(employees => this.setState({
+        employees: employees
+    }))
+
     render() {
         return (
             <React.Fragment>
@@ -126,11 +133,16 @@ class ApplicationViews extends Component {
                             employees={this.state.employees} />
                     }} />
                     <Route exact path="/employees" render={(props) => {
-                        return <EmployeeList employees={this.state.employees} deleteEmployee={this.deleteEmployee} />
+                        return <EmployeeList {...props} employees={this.state.employees} deleteEmployee={this.deleteEmployee} />
                     }} />
                     <Route path="/employees/:employeeId(\d+)" render={(props) => {
                         return <EmployeeDetail {...props} deleteEmployee={this.deleteEmployee} employees={this.state.employees} />
                     }} />
+                    <Route path="/employees/new" render={props => {
+                        return <EmployeeForm {...props}  
+                        addEmployee={this.addEmployee} />
+                    }}
+                    />
                     <Route exact path="/owners" render={(props) => {
                         return <OwnersList owners={this.state.owners} deleteOwner={this.deleteOwner} />
                     }} />

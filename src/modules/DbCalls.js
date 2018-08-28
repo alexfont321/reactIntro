@@ -34,6 +34,18 @@ export default Object.create(null, {
             return fetch(`${remoteURL}/employees`).then(r => r.json())
         }
     },
+    addEmployee: {
+        value: newEmployee => {
+            return fetch(`${remoteURL}/employees`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(newEmployee)
+            }
+        ).then(r => r.json())
+        }
+    },
     getAllOwners: {
         value: () => {
             return fetch(`${remoteURL}/owners`).then(r => r.json())
