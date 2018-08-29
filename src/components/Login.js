@@ -7,7 +7,7 @@ export default class Login extends Component {
     state = {
         email: "",
         password: "",
-        rememberMe: "off"
+        rememberMe: false
     }
 
     // Update state whenever an input field is edited
@@ -26,7 +26,7 @@ export default class Login extends Component {
             the customer enters into local storage.
     */
 
-    if (this.state.rememberMe === "on") {
+    if (this.state.rememberMe === true) {
         localStorage.setItem(
             "credentials",
             JSON.stringify({
@@ -50,6 +50,16 @@ export default class Login extends Component {
 
     }}
 
+    checkbox = () => {
+        if (this.state.rememberMe) {
+            this.setState(
+                {rememberMe: false}
+            )
+        } else {
+            this.setState({rememberMe: true})
+        }
+    }
+
     render() {
         return (
             <form onSubmit={this.handleLogin}>
@@ -68,8 +78,7 @@ export default class Login extends Component {
                        required="" /></fieldset>
                 <fieldset>
                     <label>Remember Me</label>
-                    <input type="checkbox" onChange={this.handleFieldChange}
-                            id="rememberMe"></input>
+                    <input type="checkbox" onChange={this.checkbox}></input>
                 </fieldset>
                 <fieldset>
                     <button type="submit">Sign in</button></fieldset>
