@@ -4,7 +4,9 @@ export default class AnimalEditForm extends Component {
     state = {
         animalName: "",
         breed: "",
-        employee: "",
+        employee: ""
+        // animal: {}, 
+        // employee: {}
 
     }
 
@@ -27,7 +29,18 @@ export default class AnimalEditForm extends Component {
     
     }
 
+    componentDidMount(){
+        const animal = this.props.animals.find(a => a.id === parseInt(this.props.match.params.animalId)) || {}
+        const employee = this.props.employees.find(a => a.id === parseInt(this.props.match.params.employeeId)) || {}
+        this.setState(animal)
+
+
+    }
+
     render() {
+
+
+
         return (
             <React.Fragment>
             <form className="animalForm">
@@ -38,7 +51,7 @@ export default class AnimalEditForm extends Component {
                            onChange={this.handleFieldChange}
                            id="animalName"
                            placeholder="Animal name"
-                           value={this.state.animalName} />
+                           defaultValue={this.state.name} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="breed">Breed</label>
@@ -46,7 +59,7 @@ export default class AnimalEditForm extends Component {
                            className="form-control"
                            onChange={this.handleFieldChange}
                            id="breed" placeholder="Breed"
-                           value={this.state.breed} />
+                           defaultValue={this.state.breed} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="employee">Assign to caretaker</label>
