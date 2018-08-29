@@ -20,6 +20,7 @@ import "./ApplicationViews.css"
 class ApplicationViews extends Component {
 
     isAuthenticated = () => localStorage.getItem("credentials") !== null
+    isSessionAuthenticated = () => sessionStorage.getItem("credentials") !== null
 
 
     state = {
@@ -129,7 +130,7 @@ class ApplicationViews extends Component {
                     <Route path="/login" component={Login} />
 
                     <Route exact path="/" render={(props) => {
-                        if (this.isAuthenticated()){
+                        if (this.isAuthenticated()  || this.isSessionAuthenticated()){
                             return <LocationList locations={this.state.locations} />
 
                         } else {
@@ -137,7 +138,7 @@ class ApplicationViews extends Component {
                         }
                     }} />
                     <Route exact path="/animals" render={(props) => {
-                        if (this.isAuthenticated()) {
+                        if (this.isAuthenticated() || this.isSessionAuthenticated()) {
                             return <AnimalList {...props} animals={this.state.animals} deleteAnimal={this.deleteAnimal}
                             // owners={this.state.owners}
                             />
@@ -160,7 +161,7 @@ class ApplicationViews extends Component {
                         />
                     }} />
                     <Route exact path="/employees" render={(props) => {
-                        if (this.isAuthenticated()) {
+                        if (this.isAuthenticated() || this.isSessionAuthenticated()) {
                             return <EmployeeList deleteEmployee={this.deleteEmployee}
                                                  employees={this.state.employees} />
                         } else {
@@ -176,7 +177,7 @@ class ApplicationViews extends Component {
                     }}
                     />
                     <Route exact path="/owners" render={(props) => {
-                        if (this.isAuthenticated()) {
+                        if (this.isAuthenticated() || this.isSessionAuthenticated()) {
                             return <OwnersList owners={this.state.owners} deleteOwner={this.deleteOwner} />
                         } else {
                             return <Redirect to="/login" />
