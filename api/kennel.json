@@ -2,19 +2,26 @@
   "employees": [
     {
       "id": 1,
-      "name": "Jessica Younker"
+      "name": "Jessica Younker",
+      "locationId": 1
     },
     {
       "name": "fffffff",
-      "id": 5
+      "id": 5,
+      "locationId": 1
+
     },
     {
       "name": "Ricky Buttface",
-      "id": 6
+      "id": 6,
+      "locationId": 2
+
     },
     {
       "name": "Table Legs",
-      "id": 7
+      "id": 7,
+      "locationId": 2
+
     }
   ],
   "locations": [
@@ -47,6 +54,12 @@
       "breed": "Big Dog",
       "employeeId": 6,
       "id": 8
+    },
+    {
+      "name": "Kumita",
+      "breed": "Akita",
+      "employeeId": 7,
+      "id": 9
     }
   ],
   "owners": [
