@@ -167,6 +167,7 @@ class ApplicationViews extends Component {
                             return <EmployeeList deleteEmployee={this.deleteEmployee}
                                                  employees={this.state.employees} 
                                                  animals={this.state.animals}
+                                                 deleteAnimal={this.deleteAnimal}
                                                  />
                         } else {
                             return <Redirect to="/login" />

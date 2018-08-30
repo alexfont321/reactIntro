@@ -9,19 +9,16 @@
       "name": "fffffff",
       "id": 5,
       "locationId": 1
-
     },
     {
       "name": "Ricky Buttface",
       "id": 6,
       "locationId": 2
-
     },
     {
       "name": "Table Legs",
       "id": 7,
       "locationId": 2
-
     }
   ],
   "locations": [
@@ -38,18 +35,6 @@
   ],
   "animals": [
     {
-      "name": "fasadffdfffffff",
-      "breed": "Big Dog",
-      "employeeId": 1,
-      "id": 5
-    },
-    {
-      "name": "dfasdfadsf",
-      "breed": "dsfsfsfs",
-      "employeeId": 1,
-      "id": 7
-    },
-    {
       "name": "wferf",
       "breed": "Big Dog",
       "employeeId": 6,
@@ -60,6 +45,36 @@
       "breed": "Akita",
       "employeeId": 7,
       "id": 9
+    },
+    {
+      "name": "More ",
+      "breed": "Big Dog",
+      "employeeId": 1,
+      "id": 10
+    },
+    {
+      "name": "doggiedog",
+      "breed": "Fat",
+      "employeeId": 5,
+      "id": 11
+    },
+    {
+      "name": "peter",
+      "breed": "paul",
+      "employeeId": 7,
+      "id": 12
+    },
+    {
+      "name": "moreman",
+      "breed": "Utah",
+      "employeeId": 6,
+      "id": 13
+    },
+    {
+      "name": "Housu",
+      "breed": "film",
+      "employeeId": 6,
+      "id": 14
     }
   ],
   "owners": [

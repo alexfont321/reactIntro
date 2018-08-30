@@ -22,7 +22,7 @@ export default class EmployeeList extends Component {
                             {
                                 this.props.animals
                                     .filter(anml => anml.employeeId === employee.id)
-                                    .map(anml => <AnimalCard key={anml.id} animal={anml} {...this.props} />)
+                                    .map(anml => <AnimalCard key={anml.id} animal={anml} deleteAnimal={this.props.deleteAnimal} {...this.props} />)
                             }
                             </div>
 
